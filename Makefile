@@ -67,10 +67,19 @@ clean:
 ################
 # Application specific targets
 
+.PHONY: migrate
+migrate: .migrate.secondary
+
+.PHONY: createsuperuser
+createsuperuser: .superuser.secondary
+
 ################
 # Source transformations
 
-.migrate.secondary: server/settings.py
+.superuser.secondary: .migrate.secondary
+	$(PYTHON) manage.py createsuperuser
+
+.migrate.secondary: server/settings.py .depend.secondary
 	$(PYTHON) manage.py makemigrations
 	$(PYTHON) manage.py migrate
 

@@ -2,7 +2,10 @@
 django>=1.8
 
 # Remote submission library
-django-remote-submission>=0.1.0
+django-remote-submission>=0.1.1
 
 # Task queue library
-celery>=4.0.0
+celery[redis]>=4.0.0
+
+# Save results in Django
+django-celery-results
