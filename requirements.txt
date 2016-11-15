@@ -1,0 +1,8 @@
+# Web framework
+django>=1.8
+
+# Remote submission library
+django-remote-submission>=0.1.0
+
+# Task queue library
+celery>=4.0.0
